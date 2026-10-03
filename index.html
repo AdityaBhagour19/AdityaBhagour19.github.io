@@ -921,7 +921,7 @@
     Open to<br><span class="accent">Internships.</span>
   </h2>
   <div class="contact-links reveal reveal-delay-2">
-    <a href="mailto:bhagouraditya19@gmail.com" id="emailLink" class="contact-link">
+    <a href="mailto:bhagouraditya19@gmail.com" class="contact-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
       Email Me
     </a>
@@ -938,9 +938,6 @@
       +91 90584 36429
     </a>
   </div>
-  <p class="reveal reveal-delay-3" style="margin-top:28px;font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;">
-    bhagouraditya19@gmail.com
-  </p>
 </section>
 
 <!-- FOOTER -->
@@ -980,15 +977,6 @@
     navLinks.classList.remove('open');
     navToggle.setAttribute('aria-expanded', 'false');
   }));
-
-  // Email button: mailto: does nothing when no mail app is set up, so open Gmail on desktop
-  const emailLink = document.getElementById('emailLink');
-  emailLink.addEventListener('click', e => {
-    if (window.matchMedia('(hover: hover)').matches) {
-      e.preventDefault();
-      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=bhagouraditya19@gmail.com', '_blank', 'noopener');
-    }
-  });
 </script>
 </body>
 </html>
