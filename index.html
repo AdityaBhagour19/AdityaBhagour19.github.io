@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aditya Bhagour — Portfolio</title>
+<meta name="description" content="Portfolio of Aditya Bhagour, B.Tech Computer Science student at GLA University working on data, NLP and AI projects." />
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 <style>
   :root {
@@ -542,6 +543,60 @@
     body { cursor: auto; }
     .cursor, .cursor-ring { display: none; }
   }
+
+  /* ── ADDITIONS ── */
+  .project-card + .project-card { margin-top: 24px; }
+  .project-status {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(255,194,71,0.4);
+    padding: 3px 10px;
+    margin-left: 12px;
+    white-space: nowrap;
+  }
+  .project-date-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--cyan);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+  @media (max-width: 768px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: rgba(5,8,16,0.97);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 16px 24px; border-top: 1px solid var(--border); }
+    .project-card { padding: 28px 22px; }
+    .project-meta { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero-actions { flex-wrap: wrap; }
+    .contact-link { font-size: 0.7rem; padding: 12px 20px; }
+  }
+  @media (hover: none) {
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+    .btn-primary, .btn-ghost { cursor: pointer; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero-tag, .hero-name, .hero-desc, .hero-actions, .orb { opacity: 1; animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -553,11 +608,13 @@
 <!-- NAV -->
 <nav>
   <a href="#hero" class="nav-logo">AB.</a>
-  <div class="nav-links">
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
     <a href="#certs">Certifications</a>
+    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -568,13 +625,13 @@
   <div class="orb orb1"></div>
   <div class="orb orb2"></div>
   <div class="orb orb3"></div>
-  <div class="hero-tag">Available for opportunities · Agra, India</div>
+  <div class="hero-tag">Open to internships · Agra, India</div>
   <h1 class="hero-name">
     ADITYA<br>
     <span class="line2">BHAGOUR</span>
   </h1>
   <p class="hero-desc">
-    <span>BTech Computer Science student</span> at GLA University, building AI-powered software &amp; targeting Product Manager roles at world-class tech companies.
+    <span>B.Tech Computer Science student</span> at GLA University, building data and AI projects in Python and looking for an internship to learn from real-world engineering challenges.
   </p>
   <div class="hero-actions">
     <a href="#projects" class="btn-primary">View Projects</a>
@@ -586,11 +643,11 @@
 <section id="about">
   <div>
     <div class="section-label reveal">About Me</div>
-    <h2 class="section-title reveal reveal-delay-1">Building at the<br>intersection of<br>AI &amp; Product.</h2>
+    <h2 class="section-title reveal reveal-delay-1">Turning data<br>into working<br>software.</h2>
     <div class="about-text reveal reveal-delay-2">
-      <p>I'm a <strong>second-year CS student</strong> at GLA University with a passion for building intelligent systems that solve real problems. My focus lies at the crossroads of software engineering and product thinking.</p>
-      <p>I've worked with <strong>Python, Java, C, SQL, and MongoDB</strong>, and have hands-on experience integrating <strong>Generative AI</strong> via the Anthropic Claude API into full-stack applications.</p>
-      <p>I'm aiming for <strong>Product Manager roles</strong> at companies like Google, Microsoft, Siemens, and BMW — where I can combine technical depth with strategic thinking.</p>
+      <p>I'm a <strong>B.Tech Computer Science student</strong> at GLA University (graduating 2028) who enjoys building things that solve real problems, from NLP-based resume scoring to e-commerce analytics and dashboards.</p>
+      <p>I work with <strong>Python, SQL, Java, C, HTML and CSS</strong>, analyse data with <strong>Pandas, NumPy and Power BI</strong>, and have used <strong>Generative AI</strong> through the Anthropic Claude API in my projects.</p>
+      <p>I'm looking for a <strong>software engineering internship</strong> where I can learn from an engineering team, ship real work and keep growing.</p>
     </div>
   </div>
   <div class="stat-grid">
@@ -599,16 +656,16 @@
       <div class="stat-label">Expected Graduation</div>
     </div>
     <div class="stat-card reveal reveal-delay-2">
-      <div class="stat-num">6.89</div>
-      <div class="stat-label">CGPA (BTech)</div>
+      <div class="stat-num">67.7%</div>
+      <div class="stat-label">CGPA (B.Tech)</div>
     </div>
     <div class="stat-card reveal reveal-delay-3">
-      <div class="stat-num">2+</div>
-      <div class="stat-label">AI Certifications</div>
+      <div class="stat-num">3</div>
+      <div class="stat-label">Projects Completed</div>
     </div>
     <div class="stat-card reveal reveal-delay-4">
-      <div class="stat-num">AI</div>
-      <div class="stat-label">Primary Domain</div>
+      <div class="stat-num">6</div>
+      <div class="stat-label">Certifications</div>
     </div>
   </div>
 </section>
@@ -624,46 +681,53 @@
       <div class="skill-group-title">Languages</div>
       <div class="skill-tags">
         <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
         <span class="skill-tag">Java</span>
         <span class="skill-tag">C</span>
-        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">HTML</span>
+        <span class="skill-tag">CSS</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-2">
       <div class="skill-group-title">Databases</div>
       <div class="skill-tags">
         <span class="skill-tag">MongoDB</span>
-        <span class="skill-tag">SQL (Relational)</span>
+        <span class="skill-tag">SQL (SQLite)</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-3">
-      <div class="skill-group-title">Technologies</div>
+      <div class="skill-group-title">Data &amp; Analytics</div>
       <div class="skill-tags">
-        <span class="skill-tag">Generative AI</span>
-        <span class="skill-tag">Claude API</span>
-        <span class="skill-tag">Anthropic</span>
-      </div>
-    </div>
-    <div class="skill-group reveal">
-      <div class="skill-group-title">Professional</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Communication</span>
-        <span class="skill-tag">Teamwork</span>
-        <span class="skill-tag">Problem Solving</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">EDA</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">DAX</span>
+        <span class="skill-tag">MS Excel</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-1">
-      <div class="skill-group-title">Product Mindset</div>
+      <div class="skill-group-title">AI &amp; NLP</div>
       <div class="skill-tags">
-        <span class="skill-tag">User Research</span>
-        <span class="skill-tag">System Design</span>
-        <span class="skill-tag">Iteration</span>
+        <span class="skill-tag">NLP</span>
+        <span class="skill-tag">TF-IDF</span>
+        <span class="skill-tag">Sentiment Analysis (VADER)</span>
+        <span class="skill-tag">Generative AI</span>
+        <span class="skill-tag">Claude API</span>
       </div>
     </div>
     <div class="skill-group reveal reveal-delay-2">
+      <div class="skill-group-title">Tools</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">GitHub</span>
+      </div>
+    </div>
+    <div class="skill-group reveal reveal-delay-3">
       <div class="skill-group-title">Currently Learning</div>
       <div class="skill-tags">
-        <span class="skill-tag">Product Strategy</span>
+        <span class="skill-tag">CI/CD Pipelines</span>
         <span class="skill-tag">Data Structures</span>
         <span class="skill-tag">System Design</span>
       </div>
@@ -681,6 +745,8 @@
       <span class="project-date">Feb 2026 — Mar 2026</span>
       <div class="project-tech">
         <span class="tech-pill">Python</span>
+        <span class="tech-pill">NLP</span>
+        <span class="tech-pill">TF-IDF</span>
         <span class="tech-pill">Claude API</span>
         <span class="tech-pill">SQL</span>
         <span class="tech-pill">MongoDB</span>
@@ -688,14 +754,75 @@
     </div>
     <h3 class="project-title">AI Resume Screening &amp;<br>Scoring System</h3>
     <p class="project-desc">
-      An intelligent web application that automatically screens and scores resumes against job descriptions using Anthropic's Claude API. Built as my BTech placement showcase project, this system brings real AI-powered analysis to the recruitment workflow.
+      An NLP application that compares resumes with job descriptions using TF-IDF-based text similarity to generate a relevance score, showing how well a candidate matches a role.
     </p>
     <ul class="project-features">
-      <li>PDF upload interface with drag-and-drop support and real-time ATS compatibility scoring via animated SVG gauges</li>
-      <li>Keyword gap analysis identifying missing skills with tailored improvement suggestions per job role</li>
-      <li>Multi-resume comparison feature for evaluating multiple candidates side by side</li>
-      <li>Refactored architecture from multi-service backend to a streamlined single-file solution for performance gains</li>
+      <li>Drag-and-drop PDF upload with ATS compatibility scoring shown on animated SVG gauges</li>
+      <li>Keyword gap analysis that finds missing skills and suggests improvements for a specific role</li>
+      <li>Multi-resume comparison to evaluate candidates side by side</li>
+      <li>Simplified the architecture from a multi-service backend to a single-file solution</li>
     </ul>
+  </div>
+
+  <div class="project-card reveal reveal-delay-2">
+    <div class="project-meta">
+      <span class="project-date">Jun 2026 — Jul 2026</span>
+      <div class="project-tech">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Pandas</span>
+        <span class="tech-pill">SQL</span>
+        <span class="tech-pill">Power BI</span>
+        <span class="tech-pill">DAX</span>
+        <span class="tech-pill">VADER</span>
+      </div>
+    </div>
+    <h3 class="project-title">RetailPulse — Consumer Behavior &amp;<br>Funnel Intelligence</h3>
+    <p class="project-desc">
+      An e-commerce analytics project on the Olist Brazilian dataset that analyses customer journeys, order patterns and delivery behaviour to find what affects customer experience and business performance.
+    </p>
+    <ul class="project-features">
+      <li>End-to-end analysis of 99K+ orders with Python and SQL</li>
+      <li>Conversion funnel analysis to locate customer drop-off points</li>
+      <li>VADER sentiment analysis to flag negative customer experiences</li>
+      <li>Interactive Power BI dashboards (DAX) for retention and sales insights</li>
+    </ul>
+  </div>
+
+  <div class="project-card reveal reveal-delay-2">
+    <div class="project-meta">
+      <span class="project-date">Sep 2026</span>
+      <div class="project-tech">
+        <span class="tech-pill">Python</span>
+        <span class="tech-pill">Pandas</span>
+        <span class="tech-pill">NumPy</span>
+        <span class="tech-pill">Visualization</span>
+      </div>
+    </div>
+    <h3 class="project-title">Seasonal Agriculture<br>Performance Analysis</h3>
+    <p class="project-desc">
+      A data analysis project using 4,000+ farm records across states, crops and growing seasons to study the factors that affect agricultural performance.
+    </p>
+    <ul class="project-features">
+      <li>Data cleaning and exploratory analysis of the full dataset</li>
+      <li>Visualizations of the link between rainfall, crop production and seasonal performance</li>
+    </ul>
+  </div>
+
+  <div class="project-card reveal reveal-delay-2">
+    <div class="project-meta">
+      <div class="project-date-wrap">
+        <span class="project-date">2026</span>
+        <span class="project-status">In progress</span>
+      </div>
+      <div class="project-tech">
+        <span class="tech-pill">HTML</span>
+        <span class="tech-pill">CSS</span>
+      </div>
+    </div>
+    <h3 class="project-title">CI/CD Pipeline<br>Visualizer</h3>
+    <p class="project-desc">
+      A browser-based tool, still at an early stage, that simulates build, test and deploy stages as an interactive pipeline graph. I'm building it to learn how pipelines and stage dependencies work.
+    </p>
   </div>
 </section>
 
@@ -705,17 +832,45 @@
   <h2 class="section-title reveal reveal-delay-1">Certifications</h2>
   <div class="cert-grid">
     <div class="cert-card reveal reveal-delay-2">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-title">Data Analysis with Python (DA0101EN)</div>
+        <div class="cert-org">IBM Developer Skills Network · Aug 2025</div>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-3">
+      <div class="cert-icon">📈</div>
+      <div>
+        <div class="cert-title">Power BI Bootcamp</div>
+        <div class="cert-org">GLA University · Apr 2026</div>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-2">
+      <div class="cert-icon">🧮</div>
+      <div>
+        <div class="cert-title">Introduction to MS Excel</div>
+        <div class="cert-org">Simplilearn · May 2026</div>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-3">
+      <div class="cert-icon">🛠️</div>
+      <div>
+        <div class="cert-title">AI Tools &amp; ChatGPT Workshop</div>
+        <div class="cert-org">Be10X · Jun 2026</div>
+      </div>
+    </div>
+    <div class="cert-card reveal reveal-delay-2">
       <div class="cert-icon">🤖</div>
       <div>
         <div class="cert-title">Introduction to Generative AI Studio</div>
-        <div class="cert-org">Simplilearn</div>
+        <div class="cert-org">Simplilearn · Jul 2025</div>
       </div>
     </div>
     <div class="cert-card reveal reveal-delay-3">
       <div class="cert-icon">💡</div>
       <div>
         <div class="cert-title">AI for Beginners</div>
-        <div class="cert-org">HP LIFE</div>
+        <div class="cert-org">HP LIFE · Jun 2025</div>
       </div>
     </div>
   </div>
@@ -733,7 +888,7 @@
       </div>
       <div class="edu-right">
         <div class="edu-year">Expected June 2028</div>
-        <div class="edu-grade">CGPA: 6.89</div>
+        <div class="edu-grade">CGPA: 67.7%</div>
       </div>
     </div>
     <div class="edu-item reveal reveal-delay-3">
@@ -763,18 +918,18 @@
 <section id="contact">
   <div class="section-label reveal" style="justify-content:center;">Let's Connect</div>
   <h2 class="contact-big reveal reveal-delay-1">
-    Open to<br><span class="accent">Opportunities.</span>
+    Open to<br><span class="accent">Internships.</span>
   </h2>
   <div class="contact-links reveal reveal-delay-2">
-    <a href="mailto:aditya.bhagour_cs24@gla.ac.in" class="contact-link">
+    <a href="mailto:bhagouraditya19@gmail.com" id="emailLink" class="contact-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
       Email Me
     </a>
-    <a href="https://linkedin.com/in/aditya-bhagour" target="_blank" class="contact-link">
+    <a href="https://linkedin.com/in/aditya-bhagour" target="_blank" rel="noopener noreferrer" class="contact-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
       LinkedIn
     </a>
-    <a href="https://github.com/AdityaBhagour19" target="_blank" class="contact-link">
+    <a href="https://github.com/AdityaBhagour19" target="_blank" rel="noopener noreferrer" class="contact-link">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
       GitHub
     </a>
@@ -783,12 +938,15 @@
       +91 90584 36429
     </a>
   </div>
+  <p class="reveal reveal-delay-3" style="margin-top:28px;font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--muted);letter-spacing:0.05em;">
+    bhagouraditya19@gmail.com
+  </p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">ADITYA BHAGOUR</div>
-  <div class="footer-note">© 2026 · Built with precision · Agra, India</div>
+  <div class="footer-note">© 2026 · Aditya Bhagour · Agra, India</div>
 </footer>
 
 <script>
@@ -810,6 +968,27 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   reveals.forEach(r => io.observe(r));
+
+  // Mobile menu
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Email button: mailto: does nothing when no mail app is set up, so open Gmail on desktop
+  const emailLink = document.getElementById('emailLink');
+  emailLink.addEventListener('click', e => {
+    if (window.matchMedia('(hover: hover)').matches) {
+      e.preventDefault();
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=bhagouraditya19@gmail.com', '_blank', 'noopener');
+    }
+  });
 </script>
 </body>
 </html>
